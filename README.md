@@ -30,7 +30,7 @@ Querying an element in `document`:
 ```
 
 ```js
-const app = query('#app');
+const app = query('#app'); // Returns a `HTMLElement`
 ```
 
 Querying an element from another element:
@@ -42,8 +42,8 @@ Querying an element from another element:
 ```
 
 ```js
-const main = query('#main');
-const app = query(main, '#app'); // Array<HTMLElement>
+const main = query('#main'); // Returns a `HTMLElement`
+const app = query(main, '#app'); // Also returns a `HTMLElement`
 ```
 
 Querying a collection of elements:
@@ -58,7 +58,7 @@ Querying a collection of elements:
 ```
 
 ```js
-const articles = queryAll('#main > article'); 
+const articles = queryAll('#main > article'); // Returns an array `Array<HTMLElement>`
 ```
 
 ### Retrieving 'props'
