@@ -1,15 +1,7 @@
-export function query(scope, selector) {
-    if (arguments.length === 1) {
-        return query(document, arguments[0]);
-    }
-
+export function query(selector, scope = document) {
     return scope.querySelector(selector);
 }
 
-export function queryAll(scope, selector) {
-    if (arguments.length === 1) {
-        return queryAll(document, arguments[0]);
-    }
-
+export function queryAll(selector, scope = document) {
     return [...scope.querySelectorAll(selector)];
 }

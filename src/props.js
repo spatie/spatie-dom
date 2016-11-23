@@ -1,4 +1,4 @@
-import { kebabCase, camelCase } from 'lodash';
+import { kebabCase, camelCase } from './util';
 
 export function prop(el, name, fallback = null) {
     const attributeName = kebabCase(name);

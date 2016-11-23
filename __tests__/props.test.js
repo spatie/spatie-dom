@@ -7,7 +7,7 @@ describe('prop', () => {
             <div id="el" my-prop="foo"></div>
         `;
 
-        const myProp = prop(query('#el'), 'my-prop');
+        const myProp = prop(query('#el'), 'myProp');
 
         expect(myProp).toBe('foo');
     });
@@ -17,7 +17,7 @@ describe('prop', () => {
             <div id="el" :my-prop='{ "foo": "bar" }'></div>
         `;
 
-        const myProp = prop(query('#el'), 'my-prop');
+        const myProp = prop(query('#el'), 'myProp');
 
         expect(myProp).toEqual({ foo: 'bar' });
     });
@@ -27,7 +27,7 @@ describe('prop', () => {
             <div id="el"></div>
         `;
 
-        const myProp = prop(query('#el'), 'my-prop');
+        const myProp = prop(query('#el'), 'myProp');
 
         expect(myProp).toBeNull();
     });
@@ -37,7 +37,7 @@ describe('prop', () => {
             <div id="el"></div>
         `;
 
-        const myProp = prop(query('#el'), 'my-prop', 'default');
+        const myProp = prop(query('#el'), 'myProp', 'default');
 
         expect(myProp).toBe('default');
     });
