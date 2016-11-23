@@ -113,10 +113,10 @@ whenLoaded(() => console.log('Loaded!'));
 
 ```ts
 function query(selector: string): HTMLElement | null;
-function query(selector: string, el: HTMLElement | Document = document): HTMLElement | null;
+function query(selector: string, el: HTMLElement | Document): HTMLElement | null;
 
 function queryAll(selector: string): Array<HTMLElement>;
-function queryAll(selector: string, el: HTMLElement | Document = document): Array<HTMLElement>;
+function queryAll(selector: string, el: HTMLElement | Document): Array<HTMLElement>;
 ```
 
 ### Props
@@ -131,6 +131,7 @@ function props(el: HTMLElement): Object;
 
 ```ts
 function whenReady(callback: Function): void
+
 function whenLoaded(callback: Function): void
 ```
 
