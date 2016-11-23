@@ -113,10 +113,10 @@ whenLoaded(() => console.log('Loaded!'));
 
 ```ts
 function query(selector: string): HTMLElement | null;
-function query(selector: string, el: HTMLElement | Document): HTMLElement | null;
+function query(selector: string, scope: HTMLElement | Document): HTMLElement | null;
 
 function queryAll(selector: string): Array<HTMLElement>;
-function queryAll(selector: string, el: HTMLElement | Document): Array<HTMLElement>;
+function queryAll(selector: string, scope: HTMLElement | Document): Array<HTMLElement>;
 ```
 
 ### Props
