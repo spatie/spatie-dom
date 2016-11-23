@@ -3,7 +3,6 @@
 [![Latest Version on NPM](https://img.shields.io/npm/v/spatie-dom.svg?style=flat-square)](https://npmjs.com/package/spatie-dom)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/spatie-dom/master.svg?style=flat-square)](https://travis-ci.org/spatie/spatie-dom)
-[![Code Climate](https://img.shields.io/codeclimate/github/spatie/spatie-dom.svg?style=flat-square)](https://img.shields.io/codeclimate/github/spatie/spatie-dom.svg)
 
 A small DOM querying and manipulation library.
 
