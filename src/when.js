@@ -4,10 +4,20 @@ export function whenReady(callback) {
         return;
     }
 
-    const callbackHandler = () => {
+    document.addEventListener('DOMContentLoaded', function handler() {
         callback();
-        document.removeEventListener('DOMContentLoaded', callbackHandler);
-    };
+        document.removeEventListener('DOMContentLoaded', handler);
+    }); 
+}
 
-    document.addEventListener('DOMContentLoaded', callbackHandler); 
+export function whenLoaded(callback) {
+    if (document.readyState === 'complete') {
+        callback();
+        return;
+    }
+
+    window.addEventListener('load', function handler() {
+        callback();
+        document.removeEventListener('load', handler);
+    }); 
 }

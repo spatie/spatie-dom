@@ -33,19 +33,6 @@ Querying an element in `document`:
 const app = query('#app'); // Returns a `HTMLElement`
 ```
 
-Querying an element from another element:
-
-```html
-<div id="main">
-    <h1>Header</h1>
-</div>
-```
-
-```js
-const main = query('#main'); // Returns a `HTMLElement`
-const app = query(main, '#app'); // Also returns a `HTMLElement`
-```
-
 Querying a collection of elements:
 
 > `queryAll` returns a plain array instead of the usual `NodeList` collection
@@ -61,9 +48,24 @@ Querying a collection of elements:
 const articles = queryAll('#main > article'); // Returns an array `Array<HTMLElement>`
 ```
 
+`query` and `queryAll` also accept a scope as their second argument (by default, the scope is `document`).
+
+```html
+<div id="main">
+    <h1>Header</h1>
+</div>
+```
+
+```js
+const main = query('#main'); // Returns a `HTMLElement`
+const header = query('h1', main); // Also returns a `HTMLElement`
+```
+
 ### Retrieving 'props'
 
 Props are DOM attributes that exist to be consumed by scripts. Props behave just like attributes, except they get parsed as JSON if prefixed by a `:`. 
+
+> This syntax is heavily based on what Vue uses for component props
 
 ```html
 <div
@@ -84,16 +86,38 @@ prop(el, 'config'); // { url: 'bar' }
 props(el); // { myProp: 'foo', config: { url: 'bar' }}
 ```
 
+### Firing events based on the DOM state
+
+The `whenReady` function calls a function:
+- immediately if the DOM is loaded;
+- otherwise after the `document` `DOMContentLoaded` event
+
+```js
+import { whenReady } from  'spatie-dom';
+
+whenReady(() => console.log('Ready!'));
+```
+
+The `whenLoaded` function calls a function:
+- immediately if the DOM and all subresources (scripts, images,...) are loaded; 
+- otherwise after the `window` `load` event
+
+```js
+import { whenLoaded } from  'spatie-dom';
+
+whenLoaded(() => console.log('Loaded!'));
+```
+
 ## Full API
 
 ### Query
 
 ```ts
 function query(selector: string): HTMLElement | null;
-function query(el: HTMLElement | Document, selector: string): HTMLElement | null;
+function query(selector: string, el: HTMLElement | Document = document): HTMLElement | null;
 
 function queryAll(selector: string): Array<HTMLElement>;
-function queryAll(el: HTMLElement | Document, selector: string): Array<HTMLElement>; 
+function queryAll(selector: string, el: HTMLElement | Document = document): Array<HTMLElement>;
 ```
 
 ### Props
@@ -102,6 +126,13 @@ function queryAll(el: HTMLElement | Document, selector: string): Array<HTMLEleme
 function prop(el: HTMLElement, name: string, fallback: any = null): any;
 
 function props(el: HTMLElement): Object;
+```
+
+### When
+
+```ts
+function whenReady(callback: Function): void
+function whenLoaded(callback: Function): void
 ```
 
 ## Change log
