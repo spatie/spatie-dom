@@ -1,0 +1,1 @@
+exports[`prop throws an error when something goes wrong parsing a JSON prop 1`] = `"Error parsing JSON for prop my-prop: Unexpected end of JSON input"`;

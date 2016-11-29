@@ -41,6 +41,16 @@ describe('prop', () => {
 
         expect(myProp).toBe('default');
     });
+
+    it('throws an error when something goes wrong parsing a JSON prop', () => {
+        document.body.innerHTML = `
+            <div id="el" :my-prop='{ "foo": "bar }'></div>
+        `;
+
+        expect(() => {
+            prop(query('#el'), 'myProp');
+        }).toThrowErrorMatchingSnapshot();
+    });
 });
 
 describe('props', () => {
