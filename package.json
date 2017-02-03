@@ -1,6 +1,6 @@
 {
   "name": "spatie-dom",
-  "version": "1.2.0-beta.1",
+  "version": "1.2.0",
   "description": "A small DOM querying and manipulation library",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
