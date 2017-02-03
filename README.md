@@ -18,7 +18,7 @@ yarn add spatie-dom
 
 ## Usage
 
-### Querying the DOM 
+### Querying the DOM
 
 The DOM can be queried with `query` and `queryAll`, which are wrappers around [`querySelector`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) and [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll).
 
@@ -62,14 +62,14 @@ const header = query('h1', main); // Also returns a `HTMLElement`
 
 ### Retrieving 'props'
 
-Props are DOM attributes that exist to be consumed by scripts. Props behave just like attributes, except they get parsed as JSON if prefixed by a `:`. 
+Props are DOM attributes that exist to be consumed by scripts. Props behave just like attributes, except they get parsed as JSON if prefixed by a `:`.
 
 > This syntax is heavily based on what Vue uses for component props
 
 ```html
 <div
-    id="component" 
-    my-prop="foo" 
+    id="component"
+    my-prop="foo"
     :config='{ "url": "bar" }'
 ></div>
 ```
@@ -98,7 +98,7 @@ whenReady(() => console.log('Ready!'));
 ```
 
 The `whenLoaded` function calls a function:
-- immediately if the DOM and all subresources (scripts, images,...) are loaded; 
+- immediately if the DOM and all subresources (scripts, images,...) are loaded;
 - otherwise after the `window` `load` event
 
 ```js
@@ -107,7 +107,61 @@ import { whenLoaded } from  'spatie-dom';
 whenLoaded(() => console.log('Loaded!'));
 ```
 
+### Reading the DOM
+
+There are several functions to read data from the dom.
+
+With `attribute` you can retrieve an attribute, and with `data` you can retrieve a data attribute.
+
+```html
+<div id="element" data-foo="bar"></div>
+```
+
+```js
+import { attribute, data, query };
+
+const el = query('#element');
+
+// Retrieve an attribute
+attribute('id', el); // 'element'
+
+// Retrieve an attribute with a fallback value
+attribute('class', el, 'active'); // 'active'
+
+// Retrieve a data attribute
+data('foo', el); // 'bar'
+
+// Retrieve a data attribute with a fallback value
+data('baz', el, 'qux'); // 'qux'
+```
+
 ## Full API
+
+### Attribute
+
+```ts
+function attribute(name: string, el: HTMLElement, fallback: string = ''): string
+```
+
+### Data
+
+```ts
+function data(name: string, el: HTMLElement, fallback: string = ''): string
+```
+
+### On
+
+```ts
+function on(event: string, subject: HTMLElement, handler: Function): string
+```
+
+### Props
+
+```ts
+function prop(el: HTMLElement, name: string, fallback: any = null): any;
+
+function props(el: HTMLElement): Object;
+```
 
 ### Query
 
@@ -117,14 +171,6 @@ function query(selector: string, scope: HTMLElement | Document): HTMLElement | n
 
 function queryAll(selector: string): Array<HTMLElement>;
 function queryAll(selector: string, scope: HTMLElement | Document): Array<HTMLElement>;
-```
-
-### Props
-
-```ts
-function prop(el: HTMLElement, name: string, fallback: any = null): any;
-
-function props(el: HTMLElement): Object;
 ```
 
 ### When
