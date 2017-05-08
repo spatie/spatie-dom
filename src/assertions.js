@@ -1,3 +1,7 @@
+export function hasTag(tag, element) {
+    return element.tagName.toLowerCase() === tag.toLowerCase();
+}
+
 export function matches(element, selector) {
     if (element.matches) {
         return element.matches(selector);
