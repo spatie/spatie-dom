@@ -2,6 +2,9 @@
 
 All Notable changes to `spatie-dom` will be documented in this file
 
+## 1.3.1
+- Fixes `hasTag` parameter order
+
 ## 1.3.0
 - Added `hasTag`
 
