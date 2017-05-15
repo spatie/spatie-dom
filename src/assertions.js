@@ -1,14 +1,14 @@
-export function hasTag(tag, element) {
-    return element.tagName.toLowerCase() === tag.toLowerCase();
+export function hasTag(el, tag) {
+    return el.tagName.toLowerCase() === tag.toLowerCase();
 }
 
-export function matches(element, selector) {
-    if (element.matches) {
-        return element.matches(selector);
+export function matches(el, selector) {
+    if (el.matches) {
+        return el.matches(selector);
     }
 
-    if (element.msMatchesSelector) {
-        return element.msMatchesSelector(selector);
+    if (el.msMatchesSelector) {
+        return el.msMatchesSelector(selector);
     }
 
     throw new Error('`Element.matches` is not supported in this browser');

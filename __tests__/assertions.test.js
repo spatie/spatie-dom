@@ -9,10 +9,10 @@ describe('hasTag', () => {
 
         const el = query('#el');
 
-        expect(hasTag('div', el)).toBe(true);
-        expect(hasTag('DIV', el)).toBe(true);
-        expect(hasTag('Div', el)).toBe(true);
-        expect(hasTag('span', el)).toBe(false);
+        expect(hasTag(el, 'div')).toBe(true);
+        expect(hasTag(el, 'DIV')).toBe(true);
+        expect(hasTag(el, 'Div')).toBe(true);
+        expect(hasTag(el, 'span')).toBe(false);
     });
 
     it('can determine whether an custom element has a tag', () => {
@@ -22,6 +22,6 @@ describe('hasTag', () => {
 
         const el = query('#el');
 
-        expect(hasTag('my-element', el)).toBe(true);
+        expect(hasTag(el, 'my-element')).toBe(true);
     });
 });
