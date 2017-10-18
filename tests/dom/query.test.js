@@ -1,4 +1,4 @@
-import { query, queryAll } from '../src';
+import { query, queryAll } from '../../src';
 
 describe('query', () => {
 

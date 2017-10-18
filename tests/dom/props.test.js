@@ -1,4 +1,4 @@
-import { query, prop, props } from '../src';
+import { query, prop, props } from '../../src';
 
 describe('prop', () => {
 

@@ -1,6 +1,6 @@
 {
-  "name": "spatie-dom",
-  "version": "1.4.0",
+  "name": "@spatie/dom",
+  "version": "2.0.0-alpha",
   "description": "A small DOM querying and manipulation library",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
@@ -26,9 +26,9 @@
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
-    "babel-preset-es2015": "^6.9.0",
-    "eslint": "^3.7.1",
-    "eslint-config-spatie": "^1.1.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.0.0",
+    "eslint-config-spatie": "^2.0.0",
     "jest": "^16.0.2"
   }
 }

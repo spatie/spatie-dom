@@ -1,8 +1,8 @@
-import { kebabCase, camelCase } from './util';
+import { kebabCase, camelCase } from '../util';
 
 export function prop(el, name, fallback = null) {
     const attributeName = kebabCase(name);
-    
+
     if (el.hasAttribute(`:${attributeName}`)) {
         try {
             return JSON.parse(el.getAttribute(`:${attributeName}`));

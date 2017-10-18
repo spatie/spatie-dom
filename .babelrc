@@ -1,8 +1,25 @@
 {
-    "presets": [
-        "es2015"
-    ],
-    "plugins": [
-        "transform-object-rest-spread"
-    ],
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "> 5% in BE"],
+        "uglify": true
+      },
+      "modules": false
+    }]
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": "current"
+          }
+        }]
+      ]
+    }
+  }
 }
