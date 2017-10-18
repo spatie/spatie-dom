@@ -36,7 +36,7 @@ describe('query', () => {
 
 describe('queryAll', () => {
 
-    it.only('can find multiple elements in the document', () => {
+    it('can find multiple elements in the document', () => {
         document.body.innerHTML = `
             <div class="section"></div>
             <div class="section"></div>

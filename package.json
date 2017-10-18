@@ -30,5 +30,8 @@
     "eslint": "^4.0.0",
     "eslint-config-spatie": "^2.0.0",
     "jest": "^16.0.2"
+  },
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }
