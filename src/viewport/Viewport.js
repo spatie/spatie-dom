@@ -4,7 +4,7 @@ export default class Viewport {
     window = {
         width: 0,
         height: 0,
-        scrollTop: 0,
+        scrollX: 0,
     };
 
     document = {
@@ -17,11 +17,11 @@ export default class Viewport {
     }
 
     get isAtStart() {
-        return this.window.scrollTop === 0;
+        return this.window.scrollX === 0;
     }
 
     get isAtEnd() {
-        return (this.window.scrollTop + this.window.height) >= this.document.height;
+        return (this.window.scrollX + this.window.height) >= this.document.height;
     }
 
     on(event, handler) {
@@ -59,6 +59,31 @@ export default class Viewport {
 
         this.window = { ...this.window, ...window };
         this.document = { ...this.document, ...document };
+    }
+
+    listen() {
+        window.addEventListener('scroll', () => {
+            this.setState({
+                window: {
+                    scrollX: window.scrollX,
+                },
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            this.setState({
+                window: {
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                },
+            });
+        });
+
+        return this;
+    }
+
+    static listen() {
+        return (new Viewport()).listen();
     }
 
     static withState({ window, document }) {

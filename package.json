@@ -6,6 +6,7 @@
   "jsnext:main": "src/index.js",
   "scripts": {
     "build": "babel src -d dist",
+    "demo": "webpack-dev-server --config ./demo/webpack.config.js",
     "test": "jest",
     "lint": "eslint src",
     "prepublish": "npm run build"
@@ -25,13 +26,14 @@
   "homepage": "https://github.com/spatie/spatie-dom",
   "devDependencies": {
     "babel-cli": "^6.9.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.0.0",
     "eslint-config-spatie": "^2.0.0",
-    "jest": "^16.0.2"
-  },
-  "dependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1"
+    "jest": "^16.0.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   }
 }
