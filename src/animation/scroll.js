@@ -1,7 +1,7 @@
 import { tick } from './tick';
 import { isNumeric } from '../util';
 
-function scrollTo(offsetOrElement, duration = 400) {
+export function scrollTo(offsetOrElement, duration = 400) {
     const offset = getOffset(offsetOrElement);
 
     if (offset === null) {

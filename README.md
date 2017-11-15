@@ -4,21 +4,45 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/spatie-dom/master.svg?style=flat-square)](https://travis-ci.org/spatie/spatie-dom)
 
-A small DOM querying and manipulation library.
+A lightweight library with various DOM-related utilities for querying, animations, and event handling.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
-## Install
+## Installation
 
-You can install the package via yarn:
+You can install the package via yarn (or npm):
 
 ```bash
-yarn add spatie-dom
+yarn add @spatie/dom
 ```
+
+That's it, no extra setup required to get started!
 
 ## Usage
 
-### Querying the DOM
+Helpers can be imported from the package one by one..
+
+```js
+import { query, queryAll, tick } from '@spatie/dom';
+```
+
+### Helpers overview
+
+| Function                  | Description |
+| ------------------------- | ----------- |
+| [$](#query)               | Alias for `query` |
+
+| [$$](#queryall)           | Alias for `queryAll` |
+| [prop](#prop)             | Read an attribute from a DOM node, optionally casting it to a JavaScript primitive |
+| [props](#props)           | Read all attributes from a DOM node, optionally casting them to JavaScript primitives |
+| [query](#query)           | Query the document or a another element for the first occurence of a selector |
+| [queryAll](#queryall)     | Query the document or another element for all occurences of a selector |
+| [scrollTo](#scrollto)     | Scroll to a pixel offset, selector or element |
+| [tick](#tick)             | A helper to make smooth animations with `requestAnimationFrame` |
+| [whenLoaded](#whenloaded) | Execute code when the document is loaded |
+| [whenReady](#whenready)   | Execure code when the document is ready |
+
+# Querying the DOM
 
 The DOM can be queried with `query` and `queryAll`, which are wrappers around [`querySelector`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) and [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll).
 
