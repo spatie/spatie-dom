@@ -35,11 +35,11 @@ import { query, queryAll, tick } from '@spatie/dom';
 | [`prop`](#prop)             | Read an attribute from a DOM node, optionally casting it to a JavaScript primitive |
 | [`props`](#props)           | Read all attributes from a DOM node, optionally casting them to JavaScript primitives |
 | [`query`](#query)           | Query the document or a another element for the first occurence of a selector |
-| [`queryAll`](#queryall)     | Query the document or another element for all occurences of a selector |
+| [`queryAll`](#queryall)     | Query the document or another element for all occurences of a selector in an array |
 | [`scrollTo`](#scrollto)     | Scroll to a pixel offset, selector or element |
 | [`tick`](#tick)             | A helper to make smooth animations with `requestAnimationFrame` |
 | [`whenLoaded`](#whenloaded) | Execute code when the document is loaded |
-| [`whenReady`](#whenready)   | Execure code when the document is ready |
+| [`whenReady`](#whenready)   | Execute code when the document is ready |
 
 # Querying the DOM
 
