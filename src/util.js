@@ -9,3 +9,7 @@ export function kebabCase(string) {
         /([A-Z])/g, char => '-' + char.toLowerCase()
     );
 }
+
+export function isNumeric(n) {
+    return ! isNaN(parseFloat(n)) && isFinite(n);
+}
