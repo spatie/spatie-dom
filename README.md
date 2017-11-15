@@ -31,7 +31,6 @@ import { query, queryAll, tick } from '@spatie/dom';
 | Function                  | Description |
 | ------------------------- | ----------- |
 | [$](#query)               | Alias for `query` |
-
 | [$$](#queryall)           | Alias for `queryAll` |
 | [prop](#prop)             | Read an attribute from a DOM node, optionally casting it to a JavaScript primitive |
 | [props](#props)           | Read all attributes from a DOM node, optionally casting them to JavaScript primitives |
