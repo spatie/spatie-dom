@@ -1,8 +1,8 @@
 import { tick } from './tick';
 import { isNumeric } from '../util';
 
-export function scrollTo(offsetOrElement, duration = 400) {
-    const offset = getOffset(offsetOrElement);
+export function scrollTo(offsetOrElementOrSelector, duration = 400) {
+    const offset = getOffset(offsetOrElementOrSelector);
 
     if (offset === null) {
         return;
@@ -15,20 +15,20 @@ export function scrollTo(offsetOrElement, duration = 400) {
     });
 }
 
-function getOffset(offsetOrElement) {
-    if (isNumeric(offsetOrElement)) {
-        return offsetOrElement;
+function getOffset(offsetOrElementOrSelector) {
+    if (isNumeric(offsetOrElementOrSelector)) {
+        return offsetOrElementOrSelector;
     }
 
-    if (! (offsetOrElement instanceof Element)) {
-        offsetOrElement = document.querySelector(offsetOrElement);
-    }
+    const element = offsetOrElementOrSelector instanceof Element
+        ? offsetOrElementOrSelector
+        : document.querySelector(offsetOrElementOrSelector);
 
-    if (offsetOrElement === null) {
+    if (element === null) {
         return null;
     }
 
-    const elementRect = offsetOrElement.getBoundingClientRect();
+    const elementRect = element.getBoundingClientRect();
     const bodyRect = document.body.getBoundingClientRect();
 
     return elementRect.top - bodyRect.top;

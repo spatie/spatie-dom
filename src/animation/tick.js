@@ -1,5 +1,5 @@
 import { isNumeric } from '../util';
-import { easeInOutQuad } from './easing.js';
+import { linear } from './easing.js';
 
 export function tick(options, callback = null) {
     if (isNumeric(options)) {
@@ -15,22 +15,26 @@ export function tick(options, callback = null) {
     }
 };
 
-function createTicker({ duration, easing = easeInOutQuad } = {}) {
+function createTicker({ duration, easing = linear } = {}) {
     return function (callback) {
-        const time = createTime(duration);
+        return new Promise(resolve => {
+            const time = createTime(duration);
 
-        const tick = now => {
-            time.elapsed = now - time.start;
-            const progress = Math.min(time.elapsed / time.duration, 1);
+            const tick = now => {
+                time.elapsed = now - time.start;
+                const progress = Math.min(time.elapsed / time.duration, 1);
 
-            callback(easing(progress));
+                callback(easing(progress));
 
-            if (progress < 1) {
-                requestAnimationFrame(tick);
-            }
-        };
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    resolve();
+                }
+            };
 
-        requestAnimationFrame(tick);
+            requestAnimationFrame(tick);
+        })
     }
 }
 
