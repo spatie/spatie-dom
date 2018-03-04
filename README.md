@@ -111,7 +111,7 @@ whenLoaded(() => console.log('Loaded!'));
 
 There are several functions to read data from the dom.
 
-With `attribute` you can retrieve an attribute, and with `data` you can retrieve a data attribute.
+With `attribute`, you can retrieve an attribute, and with `data`, you can retrieve a data attribute.
 
 ```html
 <div id="element" data-foo="bar"></div>
@@ -181,7 +181,7 @@ function whenReady(callback: Function): void
 function whenLoaded(callback: Function): void
 ```
 
-## Change log
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
